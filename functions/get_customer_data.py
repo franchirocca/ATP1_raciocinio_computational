@@ -10,12 +10,12 @@ def customer_purchase():
     shop_name = 'Covers S.A'
 
     print(f'''Bem-vindo a loja  {shop_name}, meu nome é {admin_name} e vou te ajudar hoje!''')
-    print(f'''Faremos uma pequena analise de credito, entao estarei solicitando algumas informaçoes''')
+    print(f'''Faremos uma pequena analise de crédito, então estarei solicitando algumas informações''')
 
     # Get personal data from user
     profession = input('Qual é o seu cargo profissional?: ')
     salary = int(input('Qual é o seu salário mensal?: '))
-    birth_date = int(input('Qual é o seu ano de nascimento?: '))
+    birth_date = int(input('Qual é o seu ano de nacimento?: '))
 
     # Calcultating the age by using current date from datetime pack
     now = datetime.datetime.now()
@@ -27,11 +27,11 @@ def customer_purchase():
 
     # Print personal data to user
     print(f'''
-    - Cargo: {profession}
-    - Salario mensual: R${salary}
-    - Año de nacimiento: {birth_date} 
-    - Edad: {age}
-    - Limite de gasto: R${purchase_limit}
+- Cargo: {profession}
+- Salário mensal: R${salary}
+- Ano de nacimento: {birth_date} 
+- Idade: {age}
+- Limite de compra: R${purchase_limit}
     ''')
 
     # Get product name and price
@@ -39,14 +39,14 @@ def customer_purchase():
     product_price = int(input('Digite o valor do seu produto (apenas o valor, Ex.: 90): '))
 
     # Calculate product price share over the purchase limit
-    limit_share = round((100 * product_price) / purchase_limit, 2)
+    limit_share = float(round((100 * product_price) / purchase_limit, 2))
 
     # Compare product price with customer limit and inform payment methods
-    if product_price <= 60:
+    if limit_share <= 60:
         print('Liberado!')
-    elif product_price > 60 & product_price < 90:
+    elif limit_share > 60 and limit_share < 90:
         print('Liberado ao parcelar em até x2 vezes')
-    elif product_price > 90 & product_price < 100:
+    elif limit_share > 90 and limit_share <= 100:
         print('Liberado ao parcelar em x3 ou mais vezes')
     # Product price exceed purchase limit
     else:
