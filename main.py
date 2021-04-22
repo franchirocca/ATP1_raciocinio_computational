@@ -1,7 +1,7 @@
-from functions.get_customer_data import customer_purchase
+from functions.get_customer_data import *
 
 def main() -> None:
-    customer_purchase()
+    shopping()
 
 if __name__ == '__main__':
     main()
